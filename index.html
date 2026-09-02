@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Combos Carpetillos</title>
+<title>The Center Markeshop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -26,12 +26,11 @@
     font-family:'Work Sans', sans-serif;
     padding-bottom:60px;
   }
-  .wrap{max-width:640px; margin:0 auto; padding:0 18px;}
 
   /* HEADER — waybill style */
   header{
-    padding:28px 18px 22px;
-    max-width:640px; margin:0 auto;
+    padding:28px 18px 20px;
+    max-width:720px; margin:0 auto;
     position:relative;
   }
   .route-line{
@@ -52,8 +51,9 @@
   }
   h1 span{color:var(--brick);}
   .tagline{
-    font-size:14px; color:var(--ink); opacity:0.75;
-    margin-top:6px; max-width:400px;
+    font-size:14px; color:var(--ink); opacity:0.8;
+    margin-top:8px; max-width:460px;
+    line-height:1.5;
   }
   .stamp{
     position:absolute; top:22px; right:14px;
@@ -76,48 +76,28 @@
     border-radius:50%;
   }
 
-  /* FILTER TABS */
-  .tabs{
-    display:flex; gap:8px; padding:4px 18px 20px;
-    max-width:640px; margin:0 auto;
-    overflow-x:auto;
-  }
-  .tab{
-    font-family:'Space Mono', monospace;
-    font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;
-    padding:9px 16px;
-    border:2px solid var(--ink);
-    background:transparent;
-    color:var(--ink);
-    border-radius:20px;
-    cursor:pointer;
-    white-space:nowrap;
-    transition:all 0.15s ease;
-  }
-  .tab.active{
-    background:var(--petrol-dark);
-    border-color:var(--petrol-dark);
-    color:var(--paper);
+  /* AVISO DE PRECIOS */
+  .price-notice{
+    max-width:720px; margin:0 auto 18px; padding:0 18px;
+    display:flex; align-items:center; gap:10px;
+    font-size:12.5px; color:var(--petrol-dark);
+    background:rgba(31,92,74,0.08);
+    border:1.5px dashed var(--petrol);
+    padding:10px 14px;
+    margin-left:18px; margin-right:18px;
   }
 
-  /* CARDS */
+  /* CARDS — grid 2 columnas */
   .cards{
-    display:flex; flex-direction:column; gap:22px;
-    max-width:640px; margin:0 auto; padding:0 18px;
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+    max-width:720px; margin:0 auto; padding:0 18px;
   }
   .card{
     background:var(--paper-dark);
     border:2px solid var(--ink);
     position:relative;
     overflow:hidden;
-    transition:transform 0.15s ease;
-  }
-  .card .tear{
-    height:14px;
-    background-image: radial-gradient(circle at 7px 7px, var(--paper) 6px, transparent 6.5px);
-    background-size:14px 14px;
-    background-position: -3px -7px;
-    border-bottom:2px dashed var(--ink);
+    display:flex; flex-direction:column;
   }
   .card-img{
     width:100%; aspect-ratio:1/1; object-fit:cover;
@@ -125,85 +105,57 @@
     filter:saturate(1.05);
     border-bottom:2px solid var(--ink);
   }
-  .card-body{padding:16px 16px 18px;}
-  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:8px;}
+  .card-body{padding:10px 10px 12px; display:flex; flex-direction:column; flex:1;}
   .combo-name{
     font-family:'Anton', sans-serif;
-    font-size:22px; text-transform:uppercase;
+    font-size:15px; text-transform:uppercase;
     color:var(--petrol-dark);
-    line-height:1.05;
-    letter-spacing:0.3px;
-  }
-  .price-tag{
-    font-family:'Space Mono', monospace;
-    font-weight:700; font-size:20px;
-    background:var(--brick); color:var(--paper);
-    padding:5px 10px;
-    white-space:nowrap;
-    transform:rotate(-2deg);
-    flex-shrink:0;
+    line-height:1.08;
+    letter-spacing:0.2px;
+    margin-bottom:6px;
   }
   .badge{
     display:inline-block;
     font-family:'Space Mono', monospace;
-    font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px;
+    font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px;
     color:var(--petrol-dark);
     border:1.5px solid var(--petrol-dark);
-    padding:3px 8px;
+    padding:2px 6px;
     border-radius:3px;
-    margin-bottom:10px;
+    margin-bottom:6px;
+    align-self:flex-start;
   }
   .manifest{
     list-style:none;
-    font-size:14px; line-height:1.85;
-    border-top:1px dashed var(--line);
-    padding-top:10px;
-    margin-top:4px;
+    font-size:11.5px; line-height:1.55;
+    color:var(--ink); opacity:0.85;
+    margin-bottom:10px;
+    flex:1;
   }
   .manifest li{
-    display:flex; gap:8px;
-    padding-left:0;
+    display:flex; gap:5px;
   }
   .manifest li::before{
     content:'—';
     color:var(--brick); font-weight:700; flex-shrink:0;
   }
-  .order-btn{
-    display:flex; align-items:center; justify-content:center; gap:8px;
+  .cart-add-btn{
     width:100%;
-    margin-top:10px;
+    display:flex; align-items:center; justify-content:center; gap:6px;
     background:var(--petrol-dark);
     color:var(--paper);
-    font-family:'Space Mono', monospace;
-    font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.8px;
-    padding:13px;
     border:none;
-    text-decoration:none;
+    font-family:'Space Mono', monospace;
+    font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:0.5px;
+    padding:9px 6px;
     cursor:pointer;
     transition:background 0.15s ease;
+    margin-top:auto;
   }
-  .order-btn:hover{background:#0f2b27;}
-  .order-btn svg{width:16px; height:16px; fill:var(--paper);}
+  .cart-add-btn:hover{background:#0f2b27;}
+  .cart-add-btn svg{width:14px; height:14px; fill:var(--paper); flex-shrink:0;}
+  .cart-add-btn.just-added{background:var(--brick);}
 
-  .btn-row{display:flex; gap:8px; margin-top:16px;}
-  .btn-row .order-btn{margin-top:0; flex:1.3;}
-  .cart-add-btn{
-    flex:1;
-    display:flex; align-items:center; justify-content:center; gap:6px;
-    background:transparent;
-    color:var(--petrol-dark);
-    border:2px solid var(--petrol-dark);
-    font-family:'Space Mono', monospace;
-    font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.6px;
-    padding:11px 10px;
-    cursor:pointer;
-    transition:all 0.15s ease;
-  }
-  .cart-add-btn:hover{background:var(--petrol-dark); color:var(--paper);}
-  .cart-add-btn svg{width:15px; height:15px;}
-  .cart-add-btn.just-added{background:var(--brick); border-color:var(--brick); color:var(--paper);}
-
-  /* ITEMS INDIVIDUALES: usan las mismas clases .card que los combos */
   .qty-stepper{display:flex; align-items:center; border:2px solid var(--ink);}
   .qty-stepper button{
     width:28px; height:28px;
@@ -263,16 +215,19 @@
     padding:10px 0; border-bottom:1px dashed var(--line);
     gap:10px;
   }
-  .cart-line-name{font-size:13.5px; font-weight:600; flex:1;}
+  .cart-line-name{font-size:13px; font-weight:600; flex:1; line-height:1.3;}
   .cart-line-controls{display:flex; align-items:center; gap:8px;}
-  .cart-line-price{font-family:'Space Mono', monospace; font-weight:700; font-size:13px; min-width:48px; text-align:right;}
   .cart-line-remove{background:none; border:none; color:var(--brick); font-size:16px; cursor:pointer;}
   .cart-footer{padding:16px 18px 20px; border-top:2px solid var(--ink);}
   .cart-total{
     display:flex; justify-content:space-between; align-items:center;
-    font-family:'Space Mono', monospace; font-weight:700; font-size:18px;
+    font-family:'Space Mono', monospace; font-weight:700; font-size:15px;
     margin-bottom:12px;
     color:var(--petrol-dark);
+  }
+  .cart-note{
+    font-size:11.5px; color:var(--ink); opacity:0.7;
+    margin-bottom:12px; line-height:1.4;
   }
   .cart-send-btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
@@ -282,11 +237,10 @@
     text-transform:uppercase; letter-spacing:0.6px;
     cursor:pointer; text-decoration:none;
   }
-  .cart-send-btn:disabled{opacity:0.4; cursor:not-allowed;}
   .cart-send-btn svg{width:16px; height:16px; fill:var(--paper);}
 
   footer{
-    max-width:640px; margin:34px auto 0; padding:20px 18px 0;
+    max-width:720px; margin:34px auto 0; padding:20px 18px 0;
     border-top:2px dashed var(--line);
     text-align:center;
   }
@@ -295,678 +249,409 @@
     font-size:11px; letter-spacing:0.5px;
     color:var(--ink); opacity:0.65;
   }
-
-  @media (min-width:560px){
-    .cards{display:grid; grid-template-columns:1fr 1fr;}
-  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="route-line">PAGAS EN EE.UU. <span class="dots"></span> ENTREGAMOS EN CUBA</div>
-  <h1>Combos<br><span>Carpetillos</span></h1>
-  <p class="tagline">Paga desde Estados Unidos, nosotros entregamos el combo en la puerta de tu familia en Cuba.</p>
+  <h1>The Center<br><span>Markeshop</span></h1>
+  <p class="tagline">Elige los artículos que quieras y arma tu propio combo. Te escribimos por WhatsApp para confirmar precios y coordinar la entrega en Cuba.</p>
   <div class="stamp">ENTREGA<br>A DOMICILIO<br>EN CUBA</div>
 </header>
 
-<div class="tabs">
-  <button class="tab active" data-filter="all">Todos</button>
-  <button class="tab" data-filter="fiesta">🎉 Celebración</button>
-  <button class="tab" data-filter="despensa">🥫 Despensa</button>
-  <button class="tab" data-filter="items">🧩 Arma tu Combo</button>
-</div>
+<div class="price-notice">💬 Los precios se confirman por WhatsApp al enviar tu selección — así siempre tienes el valor más actualizado.</div>
 
 <main class="cards" id="cards">
 
-  <article class="card" data-cat="fiesta">
-    <img class="card-img" src="combo-cumpleanos-1.jpg" alt="Combo de Cumpleaños 1">
+  <article class="card">
+    <img class="card-img" src="refresco-gaseosa.jpg" alt="Refresco Ciego Montero - Gaseosa (1 pomo)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Cumpleaños 1</div>
-        <div class="price-tag">$170</div>
-      </div>
-      <ul class="manifest">
-        <li>1 cake</li>
-        <li>6 refrescos gaseados</li>
-        <li>50 croquetas</li>
-        <li>12 muffins</li>
-        <li>1 flan</li>
-        <li>20 panes con pasta</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Cumpleaños 1" data-price="170">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Cumpleaños 1" data-price="170">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-  <article class="card" data-cat="despensa">
-    <img class="card-img" src="combo-enlatados-1.jpg" alt="Combo Enlatados 1">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Enlatados 1</div>
-        <div class="price-tag">$150</div>
-      </div>
-      <span class="badge">⚡ Aguanta apagones</span>
-      <ul class="manifest">
-        <li>2 latas carne de cerdo</li>
-        <li>2 latas carne de res</li>
-        <li>2 latas carne de pollo</li>
-        <li>2 latas sardinas</li>
-        <li>2 latas leche condensada</li>
-        <li>2 latas atún</li>
-        <li>2 latas leche evaporada</li>
-        <li>1 ristra de ajo</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Enlatados 1" data-price="150">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Enlatados 1" data-price="150">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-  <article class="card" data-cat="despensa">
-    <img class="card-img" src="combo-enlatados-2.jpg" alt="Combo Enlatados 2">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Enlatados 2</div>
-        <div class="price-tag">$90</div>
-      </div>
-      <span class="badge">⚡ Aguanta apagones</span>
-      <ul class="manifest">
-        <li>1 lata carne de cerdo</li>
-        <li>1 lata carne de res</li>
-        <li>1 lata carne de pollo</li>
-        <li>1 lata sardinas</li>
-        <li>1 lata leche condensada</li>
-        <li>1 lata atún</li>
-        <li>1 lata leche evaporada</li>
-        <li>1 ristra de ajo</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Enlatados 2" data-price="90">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Enlatados 2" data-price="90">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-  <article class="card" data-cat="fiesta">
-    <img class="card-img" src="combo-cumpleanos-2.jpg" alt="Combo de Cumpleaños 2">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Cumpleaños 2</div>
-        <div class="price-tag">$200</div>
-      </div>
-      <ul class="manifest">
-        <li>9 pomos de refrescos gaseados</li>
-        <li>1 caja de malta</li>
-        <li>2 cajas de cerveza</li>
-        <li>1 cake</li>
-        <li>20 panes con pasta</li>
-        <li>50 croquetas</li>
-        <li>2 flanes</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Cumpleaños 2" data-price="200">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Cumpleaños 2" data-price="200">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-gaseosa.jpg" alt="Refresco Ciego Montero - Gaseosa (1 pomo)">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$4</div>
-      </div>
+      <div class="combo-name">Refresco Ciego Montero</div>
       <ul class="manifest">
         <li>Sabor: Gaseosa</li>
         <li>Presentación: 1 pomo de 1.5L</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Gaseosa (1 pomo)" data-price="4">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Gaseosa (1 pomo)" data-price="4">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Refresco Ciego Montero - Gaseosa (1 pomo)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-gaseosa.jpg" alt="Refresco Ciego Montero - Gaseosa (Caja de 6)">
+  <article class="card">
+    <img class="card-img" src="refresco-naranja.jpg" alt="Refresco Ciego Montero - Naranja (1 pomo)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$20</div>
-      </div>
-      <ul class="manifest">
-        <li>Sabor: Gaseosa</li>
-        <li>Presentación: caja con 6 pomos de 1.5L</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Gaseosa (Caja de 6)" data-price="20">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Gaseosa (Caja de 6)" data-price="20">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-naranja.jpg" alt="Refresco Ciego Montero - Naranja (1 pomo)">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$4</div>
-      </div>
+      <div class="combo-name">Refresco Ciego Montero</div>
       <ul class="manifest">
         <li>Sabor: Naranja</li>
         <li>Presentación: 1 pomo de 1.5L</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Naranja (1 pomo)" data-price="4">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Naranja (1 pomo)" data-price="4">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Refresco Ciego Montero - Naranja (1 pomo)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-naranja.jpg" alt="Refresco Ciego Montero - Naranja (Caja de 6)">
+  <article class="card">
+    <img class="card-img" src="refresco-mate.jpg" alt="Refresco Ciego Montero - Mate (1 pomo)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$20</div>
-      </div>
-      <ul class="manifest">
-        <li>Sabor: Naranja</li>
-        <li>Presentación: caja con 6 pomos de 1.5L</li>
-      </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Naranja (Caja de 6)" data-price="20">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Naranja (Caja de 6)" data-price="20">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>
-
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-mate.jpg" alt="Refresco Ciego Montero - Mate (1 pomo)">
-    <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$4</div>
-      </div>
+      <div class="combo-name">Refresco Ciego Montero</div>
       <ul class="manifest">
         <li>Sabor: Mate</li>
         <li>Presentación: 1 pomo de 1.5L</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Mate (1 pomo)" data-price="4">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Mate (1 pomo)" data-price="4">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Refresco Ciego Montero - Mate (1 pomo)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="refresco-mate.jpg" alt="Refresco Ciego Montero - Mate (Caja de 6)">
+  <article class="card">
+    <img class="card-img" src="refresco-caja6.jpg" alt="Refresco Ciego Montero - Caja de 6 (sabor a elegir)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Refresco Ciego Montero</div>
-        <div class="price-tag">$20</div>
-      </div>
+      <div class="combo-name">Refresco Ciego Montero</div>
       <ul class="manifest">
-        <li>Sabor: Mate</li>
         <li>Presentación: caja con 6 pomos de 1.5L</li>
+        <li>Sabor a elegir: Tukola, Naranja, Mate o Limón</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Refresco Ciego Montero - Mate (Caja de 6)" data-price="20">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Refresco Ciego Montero - Mate (Caja de 6)" data-price="20">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Refresco Ciego Montero - Caja de 6 (sabor a elegir: Tukola/Naranja/Mate/Limón)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-limon.jpg" alt="Lata de Refresco - Lemon & Lime (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-limon.jpg" alt="Lata de Refresco - Lemon & Lime (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Lemon & Lime</li>
         <li>Presentación: 1 lata de 330ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Lemon & Lime (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Lemon & Lime (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Lemon & Lime (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-limon.jpg" alt="Lata de Refresco - Lemon & Lime (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-limon.jpg" alt="Lata de Refresco - Lemon & Lime (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$30</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Lemon & Lime</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Lemon & Lime (Caja)" data-price="30">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Lemon & Lime (Caja)" data-price="30">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Lemon & Lime (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-cola.jpg" alt="Lata de Refresco - Cola (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-cola.jpg" alt="Lata de Refresco - Cola (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Cola</li>
         <li>Presentación: 1 lata de 330ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Cola (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Cola (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Cola (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-cola.jpg" alt="Lata de Refresco - Cola (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-cola.jpg" alt="Lata de Refresco - Cola (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$30</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Cola</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Cola (Caja)" data-price="30">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Cola (Caja)" data-price="30">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Cola (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-naranja.jpg" alt="Lata de Refresco - Naranja (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-naranja.jpg" alt="Lata de Refresco - Naranja (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Naranja</li>
         <li>Presentación: 1 lata de 330ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Naranja (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Naranja (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Naranja (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-naranja.jpg" alt="Lata de Refresco - Naranja (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-naranja.jpg" alt="Lata de Refresco - Naranja (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$30</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Naranja</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Naranja (Caja)" data-price="30">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Naranja (Caja)" data-price="30">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Naranja (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-mate.jpg" alt="Lata de Refresco - Mate (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-mate.jpg" alt="Lata de Refresco - Mate (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Mate</li>
         <li>Presentación: 1 lata de 330ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Mate (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Mate (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Mate (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-mate.jpg" alt="Lata de Refresco - Mate (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-mate.jpg" alt="Lata de Refresco - Mate (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Refresco</div>
-        <div class="price-tag">$30</div>
-      </div>
+      <div class="combo-name">Lata de Refresco</div>
       <ul class="manifest">
         <li>Sabor: Mate</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Refresco - Mate (Caja)" data-price="30">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Refresco - Mate (Caja)" data-price="30">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Refresco - Mate (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-malta.jpg" alt="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-malta.jpg" alt="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Malta Bucanero (sin alcohol)</li>
         <li>Presentación: 1 lata de 355ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-malta.jpg" alt="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-malta.jpg" alt="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$35</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Malta Bucanero (sin alcohol)</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (Caja)" data-price="35">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (Caja)" data-price="35">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Malta Bucanero (sin alcohol) (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-bucanero-fuerte.jpg" alt="Lata de Cerveza / Malta - Bucanero Fuerte (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-bucanero-fuerte.jpg" alt="Lata de Cerveza / Malta - Bucanero Fuerte (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Bucanero Fuerte</li>
         <li>Presentación: 1 lata de 355ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Bucanero Fuerte (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Bucanero Fuerte (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Bucanero Fuerte (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-bucanero-fuerte.jpg" alt="Lata de Cerveza / Malta - Bucanero Fuerte (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-bucanero-fuerte.jpg" alt="Lata de Cerveza / Malta - Bucanero Fuerte (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$35</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Bucanero Fuerte</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Bucanero Fuerte (Caja)" data-price="35">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Bucanero Fuerte (Caja)" data-price="35">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Bucanero Fuerte (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-cristal.jpg" alt="Lata de Cerveza / Malta - Cristal (1 lata)">
+  <article class="card">
+    <img class="card-img" src="lata-cristal.jpg" alt="Lata de Cerveza / Malta - Cristal (1 lata)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$2</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Cristal</li>
         <li>Presentación: 1 lata de 355ml</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Cristal (1 lata)" data-price="2">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Cristal (1 lata)" data-price="2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Cristal (1 lata)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
-  <article class="card" data-cat="items">
-    <img class="card-img" src="lata-cristal.jpg" alt="Lata de Cerveza / Malta - Cristal (Caja)">
+  <article class="card">
+    <img class="card-img" src="lata-cristal.jpg" alt="Lata de Cerveza / Malta - Cristal (Caja)" loading="lazy">
     <div class="card-body">
-      <div class="card-top">
-        <div class="combo-name">Lata de Cerveza / Malta</div>
-        <div class="price-tag">$35</div>
-      </div>
+      <div class="combo-name">Lata de Cerveza / Malta</div>
       <ul class="manifest">
         <li>Sabor: Cristal</li>
         <li>Presentación: caja de 24 latas</li>
       </ul>
-      <div class="btn-row">
-        <a class="order-btn" href="#" data-combo="Lata de Cerveza / Malta - Cristal (Caja)" data-price="35">
-        <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Pedir por WhatsApp
-      </a>
-        <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Cristal (Caja)" data-price="35">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </button>
-      </div>
+      <button class="cart-add-btn" data-name="Lata de Cerveza / Malta - Cristal (Caja)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
     </div>
   </article>
 
+
+  <article class="card">
+    <img class="card-img" src="sazon-goya.jpg" alt="Sazón Goya" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Sazón Goya</div>
+      <ul class="manifest">
+        <li>Con culantro y achiote</li>
+        <li>Presentación: sobre individual</li>
+      </ul>
+      <button class="cart-add-btn" data-name="Sazón Goya">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img class="card-img" src="mayonesa.jpg" alt="Mayonesa Los Atrevidos" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Mayonesa Los Atrevidos</div>
+      <ul class="manifest">
+        <li>Mayonesa cubana con limón</li>
+        <li>Presentación: pomo de 946 mL (32 oz)</li>
+      </ul>
+      <button class="cart-add-btn" data-name="Mayonesa Los Atrevidos">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img class="card-img" src="leche-polvo.jpg" alt="Leche en Polvo Láctea" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Leche en Polvo Láctea</div>
+      <ul class="manifest">
+        <li>Leche en polvo entera, instantánea</li>
+        <li>Fuente de calcio, vitamina D y proteínas</li>
+      </ul>
+      <button class="cart-add-btn" data-name="Leche en Polvo Láctea">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img class="card-img" src="cafe-bustelo.jpg" alt="Café Bustelo" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Café Bustelo</div>
+      <ul class="manifest">
+        <li>Café espresso molido, 100% puro</li>
+        <li>Presentación: paquete de 10 oz (283g)</li>
+      </ul>
+      <button class="cart-add-btn" data-name="Café Bustelo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img class="card-img" src="fideos.jpg" alt="Fideos La Italiana" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Fideos La Italiana</div>
+      <ul class="manifest">
+        <li>Pasta de sémola de trigo duro</li>
+        <li>Presentación: paquete de 200g</li>
+      </ul>
+      <button class="cart-add-btn" data-name="Fideos La Italiana">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
 </main>
 
 <footer>
-  <p>COMBOS CARPETILLOS &middot; PAGO POR ZELLE DESDE EE.UU. &middot; ENTREGA A DOMICILIO EN CUBA</p>
+  <p>THE CENTER MARKESHOP &middot; PAGO POR ZELLE DESDE EE.UU. &middot; ENTREGA A DOMICILIO EN CUBA</p>
 </footer>
 
 <button class="cart-fab" id="cartFab">
-  <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+  <svg viewBox="0 0 24 24" ><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
   <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
 </button>
 
 <div class="cart-overlay" id="cartOverlay">
   <div class="cart-panel">
     <div class="cart-header">
-      <h3>Tu Pedido</h3>
+      <h3>Tu Combo</h3>
       <button class="cart-close" id="cartClose">&times;</button>
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span id="cartTotal">$0</span></div>
+      <div class="cart-total"><span>Artículos seleccionados</span><span id="cartCount">0</span></div>
+      <p class="cart-note">Al enviar, te confirmamos los precios por WhatsApp y armamos tu pedido final.</p>
       <a class="cart-send-btn" id="cartSend" href="#" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M17.6 6.3C16.1 4.8 14.1 4 12 4c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1.1 4L4 20l4-1.1c1.2.6 2.5 1 3.9 1h.1c4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6zm-5.6 12.3h-.1c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.2-.3c-.7-1.1-1-2.3-1-3.6 0-3.6 2.9-6.5 6.5-6.5 1.7 0 3.4.7 4.6 1.9 1.2 1.2 1.9 2.9 1.9 4.6.1 3.6-2.8 6.6-6.3 6.6zm3.5-4.9c-.2-.1-1.2-.6-1.3-.6-.2-.1-.3-.1-.4.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.9-.3-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4-.1-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.7.6-.7 1.5 0 .9.7 1.8.8 1.9.1.1 1.4 2.1 3.3 3 .5.2.8.3 1.1.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-1z"/></svg>
-        Enviar pedido por WhatsApp
+        Enviar selección por WhatsApp
       </a>
     </div>
   </div>
 </div>
 
 <script>
-  // ⚠️ CONFIGURACIÓN — reemplaza con tu número real de WhatsApp
-  // Formato internacional, SOLO dígitos, sin +, espacios ni guiones.
-  // Ejemplo Miami: 1 (código país) + 305xxxxxxx
+  // ⚠️ CONFIGURACIÓN — tu número de WhatsApp
   const WHATSAPP_NUMBER = "5358127153";
 
-  document.querySelectorAll('.order-btn').forEach(btn=>{
-    const combo = btn.dataset.combo;
-    const price = btn.dataset.price;
-    const msg = encodeURIComponent(`Hola, quiero pedir el combo "${combo}" ($${price}).`);
-    btn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    btn.target = "_blank";
-  });
-
-  const tabs = document.querySelectorAll('.tab');
-  const cards = document.querySelectorAll('.card');
-  tabs.forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      tabs.forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      cards.forEach(card=>{
-        if(filter === 'all' || card.dataset.cat === filter){
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
   /* ===== CARRITO ===== */
-  let cart = []; // {key, name, price, qty}
+  let cart = []; // {key, name, qty}
 
-  function formatMoney(n){ return '$' + n.toFixed(0); }
-
-  function addToCart(name, price, qty){
-    price = Number(price); qty = Number(qty) || 1;
-    const key = name;
-    const existing = cart.find(i => i.key === key);
+  function addToCart(name, qty){
+    qty = Number(qty) || 1;
+    const existing = cart.find(i => i.key === name);
     if(existing){
       existing.qty += qty;
     } else {
-      cart.push({key, name, price, qty});
+      cart.push({key:name, name, qty});
     }
     renderCart();
     flashBadge();
@@ -980,18 +665,16 @@
 
   function renderCart(){
     const itemsEl = document.getElementById('cartItems');
-    const totalEl = document.getElementById('cartTotal');
+    const countEl = document.getElementById('cartCount');
     const badge = document.getElementById('cartBadge');
     const sendBtn = document.getElementById('cartSend');
 
     itemsEl.innerHTML = '';
     if(cart.length === 0){
-      itemsEl.innerHTML = '<div class="cart-empty">Tu carrito está vacío. Agrega combos o artículos.</div>';
+      itemsEl.innerHTML = '<div class="cart-empty">Aún no has agregado artículos. Toca "Agregar" en lo que te interese.</div>';
     }
-    let total = 0, count = 0;
+    let count = 0;
     cart.forEach((item, idx)=>{
-      const lineTotal = item.price * item.qty;
-      total += lineTotal;
       count += item.qty;
       const line = document.createElement('div');
       line.className = 'cart-line';
@@ -1003,14 +686,13 @@
             <span>${item.qty}</span>
             <button data-cart-step="1" data-idx="${idx}">+</button>
           </div>
-          <div class="cart-line-price">${formatMoney(lineTotal)}</div>
           <button class="cart-line-remove" data-cart-remove="${idx}">✕</button>
         </div>
       `;
       itemsEl.appendChild(line);
     });
 
-    totalEl.textContent = formatMoney(total);
+    countEl.textContent = count;
     if(count > 0){
       badge.style.display = 'flex';
       badge.textContent = count;
@@ -1020,13 +702,12 @@
     sendBtn.style.pointerEvents = count > 0 ? 'auto' : 'none';
     sendBtn.style.opacity = count > 0 ? '1' : '0.4';
 
-    // build whatsapp message
     if(count > 0){
-      let msg = 'Hola, quiero hacer este pedido:\\n';
+      let msg = 'Hola, quiero armar este combo:\n';
       cart.forEach(item=>{
-        msg += `- ${item.name} x${item.qty} (${formatMoney(item.price * item.qty)})\\n`;
+        msg += `- ${item.name} x${item.qty}\n`;
       });
-      msg += `Total: ${formatMoney(total)}`;
+      msg += 'Me gustaría conocer los precios y confirmar el pedido, por favor.';
       sendBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
       sendBtn.target = '_blank';
     }
@@ -1048,16 +729,14 @@
     });
   }
 
-  // Combo "Agregar al carrito"
   document.querySelectorAll('.cart-add-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      addToCart(btn.dataset.name, btn.dataset.price, 1);
+      addToCart(btn.dataset.name, 1);
       btn.classList.add('just-added');
       setTimeout(()=> btn.classList.remove('just-added'), 500);
     });
   });
 
-  // Cart open/close
   const cartOverlay = document.getElementById('cartOverlay');
   document.getElementById('cartFab').addEventListener('click', ()=>{
     cartOverlay.classList.add('open');
