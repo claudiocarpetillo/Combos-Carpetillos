@@ -88,6 +88,30 @@
   }
 
   /* CARDS — grid 2 columnas */
+  .tabs{
+    display:flex; gap:8px; padding:4px 18px 16px;
+    max-width:720px; margin:0 auto;
+    overflow-x:auto;
+  }
+  .tab{
+    font-family:'Space Mono', monospace;
+    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px;
+    padding:8px 14px;
+    border:2px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    border-radius:20px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all 0.15s ease;
+    flex-shrink:0;
+  }
+  .tab.active{
+    background:var(--petrol-dark);
+    border-color:var(--petrol-dark);
+    color:var(--paper);
+  }
+
   .cards{
     display:grid; grid-template-columns:1fr 1fr; gap:12px;
     max-width:720px; margin:0 auto; padding:0 18px;
@@ -262,10 +286,19 @@
 
 <div class="price-notice">💬 Los precios se confirman por WhatsApp al enviar tu selección — así siempre tienes el valor más actualizado.</div>
 
+<div class="tabs">
+  <button class="tab active" data-filter="all">Todos</button>
+  <button class="tab" data-filter="enlatados">Enlatados</button>
+  <button class="tab" data-filter="carnicos">Cárnicos</button>
+  <button class="tab" data-filter="granos">Granos</button>
+  <button class="tab" data-filter="pastas">Pastas</button>
+  <button class="tab" data-filter="otros">Otros</button>
+</div>
+
 <main class="cards" id="cards">
 
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="sazon-goya.jpg" alt="Sazón Goya" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Sazón Goya</div>
@@ -276,7 +309,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="mayonesa.jpg" alt="Mayonesa Los Atrevidos" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Mayonesa Los Atrevidos</div>
@@ -287,7 +320,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="leche-polvo.jpg" alt="Leche en Polvo Láctea" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Leche en Polvo Láctea</div>
@@ -298,10 +331,13 @@
     </div>
   </article>
 
-  <article class="card">
-    <img class="card-img" src="cafe-bustelo.jpg" alt="Café Bustelo" loading="lazy">
+  <article class="card" data-cat="otros">
+    <img class="card-img" src="cafe-variedad.jpg" alt="Café Bustelo" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Café Bustelo</div>
+      <ul class="manifest">
+        <li>Paquete de café</li>
+      </ul>
       <button class="cart-add-btn" data-name="Café Bustelo">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         Agregar
@@ -309,7 +345,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="pastas">
     <img class="card-img" src="fideos.jpg" alt="Fideos" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Fideos</div>
@@ -320,7 +356,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="pastas">
     <img class="card-img" src="coditos.jpg" alt="Coditos" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Coditos</div>
@@ -331,7 +367,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="aceite.jpg" alt="Aceite Vegetal" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Aceite Vegetal</div>
@@ -342,7 +378,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="granos">
     <img class="card-img" src="frijoles-rojos.jpg" alt="Frijoles Rojos" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Frijoles Rojos</div>
@@ -353,7 +389,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="pastas">
     <img class="card-img" src="spaghetti.jpg" alt="Spaghetti" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Spaghetti</div>
@@ -364,7 +400,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="huevos.jpg" alt="Cartón de Huevos" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Cartón de Huevos</div>
@@ -375,7 +411,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="pollo-10lb.jpg" alt="Pollo 10 lb" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Pollo 10 lb</div>
@@ -386,7 +422,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="pollo-5lb.jpg" alt="Pollo 5 lb" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Pollo 5 lb</div>
@@ -397,7 +433,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="salchichas.jpg" alt="Salchichas" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Salchichas</div>
@@ -408,7 +444,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="granos">
     <img class="card-img" src="arroz.jpg" alt="Arroz blanco" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Arroz blanco</div>
@@ -419,7 +455,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="granos">
     <img class="card-img" src="frijoles-negros.jpg" alt="Frijoles negros" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Frijoles negros</div>
@@ -430,7 +466,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="jamon-ahumado.jpg" alt="Jamón ahumado" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Jamón ahumado</div>
@@ -441,7 +477,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="lomo-ahumado.jpg" alt="Lomo ahumado" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Lomo ahumado</div>
@@ -452,7 +488,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="queso-gouda.jpg" alt="Queso Gouda" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Queso Gouda</div>
@@ -463,7 +499,7 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="otros">
     <img class="card-img" src="queso-blanco.jpg" alt="Queso blanco" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Queso blanco</div>
@@ -474,11 +510,121 @@
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" data-cat="carnicos">
     <img class="card-img" src="tocineta.jpg" alt="Tocineta" loading="lazy">
     <div class="card-body">
       <div class="combo-name">Tocineta</div>
       <button class="cart-add-btn" data-name="Tocineta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="carnicos">
+    <img class="card-img" src="lomo-cerdo.jpg" alt="Lomo de cerdo" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Lomo de cerdo</div>
+      <button class="cart-add-btn" data-name="Lomo de cerdo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="carnicos">
+    <img class="card-img" src="pernil-cerdo.jpg" alt="Pernil de cerdo" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Pernil de cerdo</div>
+      <button class="cart-add-btn" data-name="Pernil de cerdo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="carnicos">
+    <img class="card-img" src="picadillo-mixto.jpg" alt="Picadillo mixto" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Picadillo mixto</div>
+      <button class="cart-add-btn" data-name="Picadillo mixto">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="otros">
+    <img class="card-img" src="cebollas-moradas.jpg" alt="Cebollas moradas" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Cebollas moradas</div>
+      <button class="cart-add-btn" data-name="Cebollas moradas">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="otros">
+    <img class="card-img" src="cebolla-blanca.jpg" alt="Cebolla blanca" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Cebolla blanca</div>
+      <button class="cart-add-btn" data-name="Cebolla blanca">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="otros">
+    <img class="card-img" src="ajo.jpg" alt="Ajo" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Ajo</div>
+      <button class="cart-add-btn" data-name="Ajo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="carnicos">
+    <img class="card-img" src="paleta-cerdo.jpg" alt="Paleta de cerdo" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Paleta de cerdo</div>
+      <button class="cart-add-btn" data-name="Paleta de cerdo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="enlatados">
+    <img class="card-img" src="carne-prensada.jpg" alt="Latas de carne prensada" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Latas de carne prensada</div>
+      <button class="cart-add-btn" data-name="Latas de carne prensada">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="enlatados">
+    <img class="card-img" src="sardinas.jpg" alt="Sardinas" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Sardinas</div>
+      <button class="cart-add-btn" data-name="Sardinas">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Agregar
+      </button>
+    </div>
+  </article>
+
+  <article class="card" data-cat="enlatados">
+    <img class="card-img" src="atun.jpg" alt="Atún" loading="lazy">
+    <div class="card-body">
+      <div class="combo-name">Atún</div>
+      <button class="cart-add-btn" data-name="Atún">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H4.54l-.94-2H1zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         Agregar
       </button>
@@ -603,6 +749,23 @@
       });
     });
   }
+
+  const tabs = document.querySelectorAll('.tab');
+  const allCards = document.querySelectorAll('.card');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      allCards.forEach(card=>{
+        if(filter === 'all' || card.dataset.cat === filter){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 
   document.querySelectorAll('.cart-add-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
